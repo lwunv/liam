@@ -1,0 +1,56 @@
+@use '../../assets/scss/abstracts/_variables.scss';
+
+.j-application {
+  display: flex;
+  background: variables.$body-bg;
+  color: variables.$body-color;
+  width: 100%;
+  height: 100%;
+
+  &.full-height {
+    .j-application__wrap {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+  }
+
+  &.full-width {
+    .j-application__wrap {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__wrap {
+    backface-visibility: hidden;
+    position: relative;
+    padding: 0 15px;
+    margin: 0 auto;
+    &.direction-row {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: row;
+    }
+    &.direction-column {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      flex-direction: column;
+    }
+    &.center {
+      align-items: center;
+      place-items: center;
+    }
+    &.container {
+      max-width: 1200px;
+      width: 100%;
+
+      &-fluid {
+        max-width: 100%;
+      }
+    }
+  }
+  &.rtl {
+    text-align: right;
+  }
+}

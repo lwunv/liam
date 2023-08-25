@@ -1,0 +1,48 @@
+@use '../../assets/scss/abstracts/_variables.scss';
+
+.j-banner {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    flex-wrap: nowrap;
+
+    &__main {
+        width: inherit;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+
+    &.stacked {
+        flex-wrap: wrap;
+
+        .j-banner__actions {
+            width: 100%;
+            justify-content: end;
+        }
+    }
+
+    &.haslink {
+        flex-wrap: wrap;
+
+        .j-banner__avatar,
+        .j-banner__title {
+            cursor: pointer;
+        }
+    }
+
+    &__title {
+        margin: 0 0 10px;
+    }
+
+    &__text {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+    }
+
+    &__actions {
+        align-self: flex-end;
+        display: flex;
+    }
+}

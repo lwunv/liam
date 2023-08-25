@@ -1,0 +1,155 @@
+@use "@/assets/scss/vendors/include-media" as *;
+@use "@/assets/scss/mixins/border-radius" as *;
+@use "@/assets/scss/mixins/box-shadow" as *;
+@use "./variables" as *;
+@use "@/assets/scss/abstracts/variables" as *;
+
+// Wrappers
+.#{$prefix}dialog {
+  --#{$prefix}dialog-width: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: map-get($z-index, 'dialog');
+  @debug ($z-index);
+  overflow: auto;
+  outline: 0;
+  text-align: center;
+
+  &.show {
+    display: block;
+  }
+}
+
+.#{$prefix}dialog__backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background-color: $dialog-backdrop-bg;
+}
+
+.#{$prefix}dialog__dialog {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin: $dialog-dialog-margin;
+  width: var(--#{$prefix}dialog-width);
+  min-width: $dialog-sm;
+  max-width: 100%;
+  // @include transition($dialog-transition);
+
+  @include media('>=sm') {
+    margin: $dialog-dialog-margin-y-sm-up;
+  }
+
+  // .#{$prefix}dialog-outer.fade & {
+  //   transform: $dialog-fade-transform;
+  // }
+
+  // .#{$prefix}dialog-outer.scale & {
+  //   transform: $dialog-scale-transform;
+  // }
+
+  // .#{$prefix}dialog-outer.show & {
+  //   transform: $dialog-show-transform;
+  // }
+}
+
+.#{$prefix}dialog__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: $dialog-content-color;
+  background-color: $dialog-content-bg;
+  border: $dialog-content-border-width solid $dialog-content-border-color;
+  @include border-radius($dialog-content-border-radius);
+  @include box-shadow($dialog-content-box-shadow-xs);
+}
+
+// Components of dialog
+.#{$prefix}dialog__header {
+  padding: $dialog-header-padding;
+  border-bottom: $dialog-header-border-width solid $dialog-header-border-color;
+}
+
+.#{$prefix}dialog__header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.#{$prefix}dialog__body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: $dialog-inner-padding;
+}
+
+.#{$prefix}dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: $dialog-inner-padding;
+  border-top: $dialog-footer-border-width solid $dialog-footer-border-color;
+}
+
+.#{$prefix}dialog__footer-btn {
+  margin: $dialog-footer-margin-between;
+}
+
+.#{$prefix}dialog__btn-close {
+  display: flex;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+}
+
+.#{$prefix}dialog__header-title {
+  margin-bottom: 0;
+  font-size: $dialog-title-font-size;
+  font-size: $dialog-title-font-weight;
+  line-height: $dialog-title-line-height;
+}
+
+// Size of dialog
+.#{$prefix}dialog__dialog--sm {
+  --#{$prefix}dialog-width: #{$dialog-sm};
+}
+
+.#{$prefix}dialog__dialog--md {
+  @include media('>=md') {
+    --#{$prefix}dialog-width: #{$dialog-md};
+  }
+}
+
+.#{$prefix}dialog__dialog--lg {
+  @include media('>=lg') {
+    --#{$prefix}dialog-width: #{$dialog-lg};
+  }
+}
+
+.#{$prefix}dialog__dialog--xl {
+  @include media('>=xl') {
+    --#{$prefix}dialog-width: $dialog-xl;
+  }
+}
+
+// Centered
+.#{$prefix}dialog--centered {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .#{$prefix}dialog__dialog {
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,122 @@
+@mixin mixin-slide($time: 1s, $in: 'left', $translate: 20vw) {
+    @if ($in == 'left') {animation: slideLeft $time forwards;}
+    @if ($in == 'right') {animation: slideRight $time forwards;}
+    @if ($in == 'up') {animation: slideUp $time forwards;}
+    @if ($in == 'down') {animation: slideDown $time forwards;}
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX($translate * -1);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX($translate);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY($translate);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY($translate * -1);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+.slide-left {
+    @include mixin-slide(1000ms, 'left', 20vw);
+}
+
+.slide-right {
+    @include mixin-slide(1000ms, 'right', 20vw);
+}
+
+
+.slide-up {
+    @include mixin-slide(1000ms, 'up', 20vw);
+}
+
+.slide-down {
+    @include mixin-slide(1000ms, 'down', 20vw);
+}
+
+///
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+///
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.zoom-in {
+    animation: zoomIn 1s forwards;
+    transform-origin: center;
+}
+
+///
+@keyframes zoomOut {
+    0% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.zoom-out {
+    animation: zoomOut 1s forwards;
+    transform-origin: center;
+}

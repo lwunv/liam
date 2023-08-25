@@ -1,0 +1,84 @@
+@use '@/assets/scss/abstracts/variables';
+@use './variables' as *;
+
+.#{variables.$prefix}card {
+  display: block;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+  width: var(--card-width);
+  border-radius: var(--card-border-radius);
+  text-decoration: none;
+  transition-duration: 0.28s;
+  transition-property: box-shadow, opacity, background;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  &__title {
+    display: block;
+    flex: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    hyphens: auto;
+    letter-spacing: .0125em;
+    min-width: 0;
+    overflow-wrap: normal;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+    word-break: normal;
+    word-wrap: break-word;
+  }
+  &__subtitle {
+    display: block;
+    flex: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.0178571429em;
+    opacity: var(--v-medium-emphasis-opacity);
+    overflow: hidden;
+    padding: 0 1rem;
+    text-overflow: ellipsis;
+    text-transform: none;
+    white-space: nowrap;
+    line-height: 1.25rem;
+  }
+  &__text {
+    line-height: 1.25rem;
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.0178571429em;
+    padding: 1rem;
+    text-transform: none;
+  }
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex: none;
+    min-height: 52px;
+    padding: 0.5rem;
+  }
+}
+.#{variables.$prefix}card--elevated {
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+.#{variables.$prefix}card--outlined {
+    border: thin solid currentColor;
+}
+.#{variables.$prefix}card--tonal{
+    .#{variables.$prefix}card__underlay{
+        background: currentColor;
+        opacity: 0.12;
+        border-radius: inherit;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+    }
+}

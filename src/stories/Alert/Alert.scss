@@ -1,0 +1,62 @@
+@use '../../assets/scss/abstracts/_variables.scss';
+
+.j-alert {
+  width: 100%;
+  background: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 15px 10px 15px 10px;
+  display: flex;
+  align-items: center;
+
+  &.error,
+  &.danger {
+    color: variables.$red;
+    background-color: rgba($color: variables.$red, $alpha: 0.25);
+  }
+
+  &.success {
+    color: variables.$green;
+    background-color: rgba($color: variables.$green, $alpha: 0.25);
+  }
+
+  &.warning {
+    color: variables.$yellow;
+    background-color: rgba($color: variables.$yellow, $alpha: 0.25);
+  }
+
+  &.info {
+    color: variables.$blue;
+    background-color: rgba($color: variables.$blue, $alpha: 0.25);
+  }
+
+  &__close {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

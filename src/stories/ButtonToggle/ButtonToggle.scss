@@ -1,0 +1,74 @@
+@use '@/assets/scss/mixins';
+@use '@/assets/scss/abstracts/variables';
+$btn-colors: (
+  primary: variables.$white,
+  secondary: variables.$white,
+  success: variables.$white,
+  danger: variables.$white,
+  warning: variables.$white,
+  info: variables.$white,
+  light: variables.$white,
+  dark: variables.$white
+) !default;
+
+.#{variables.$prefix}button-toggle {
+  display: inline-flex;
+  // @each $color, $value in variables.$theme-colors {
+  //     .#{variables.$prefix}btn--#{'' + $color} {
+  //         background: none !important;
+  //         border: none !important;
+  //         border-radius: 6px !important;
+  //         &:hover{
+  //             background: lighten($value, 30%) !important;
+  //         }
+  //     }
+  // }
+  .#{variables.$prefix}button {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    &:hover {
+      background: lighten(gray, 30%) !important;
+    }
+    &:last-child {
+      border-radius: 0px 6px 6px 0px !important;
+    }
+    &:first-child {
+      border-radius: 6px 0px 0px 6px !important;
+    }
+  }
+  &.#{variables.$prefix}btn-toggle--outlined {
+    border: 1px solid gray;
+    border-radius: 6px;
+    @each $color, $value in variables.$theme-colors {
+        .#{variables.$prefix}btn--#{'' + $color} {
+            color: black;
+        }
+      .#{variables.$prefix}button--active {
+        &.#{variables.$prefix}btn--#{'' + $color} {
+          background: lighten($value, 30%) !important;
+          border: none !important;
+          color: map-get($btn-colors, $color);
+          &:hover {
+            background: lighten($value, 20%) !important;
+          }
+        }
+      }
+    }
+  }
+  &.#{variables.$prefix}btn-toggle--default {
+    background-color: white !important;
+    .#{variables.$prefix}button--active {
+      @each $color, $value in variables.$theme-colors {
+        &.#{variables.$prefix}btn--#{'' + $color} {
+          background: $value !important;
+          border: none !important;
+          color: map-get($btn-colors, $color);
+          &:hover {
+            background: lighten($value, 10%) !important;
+          }
+        }
+      }
+    }
+  }
+}

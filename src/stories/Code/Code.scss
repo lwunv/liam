@@ -1,0 +1,15 @@
+@use '@/assets/scss/abstracts/variables';
+
+.#{variables.$prefix}code{
+    display: inline-block;
+    font-size: 0.875rem;
+    padding-inline: 0.2em;
+    border-radius: 0.125rem;
+    margin-right: 0.5rem;
+}
+@each $color, $value in variables.$theme-colors {
+    .#{variables.$prefix}code--#{'' + $color} {
+        color: $value;
+        background-color: lighten($value, 40%);
+    }
+}

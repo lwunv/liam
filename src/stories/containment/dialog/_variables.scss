@@ -1,0 +1,47 @@
+@use "@/assets/scss/abstracts/variables";
+
+// Dialog
+
+// Padding applied to the dialog body
+$dialog-inner-padding: 1rem 1.5rem !default;
+
+// Margin between elements in footer, must be lower than or equal to 2 * $dialog-inner-padding
+$dialog-footer-margin-between: 0.25rem !default;
+
+$dialog-dialog-margin: 1rem .5rem !default;
+$dialog-dialog-margin-y-sm-up: 3rem 1.5rem !default;
+
+$dialog-title-font-size: 1.5rem !default;
+$dialog-title-font-weight: 500 !default;
+$dialog-title-line-height: variables.$line-height-base !default;
+
+$dialog-content-color: null !default;
+$dialog-content-bg: variables.$white !default;
+$dialog-content-border-color: rgba(variables.$black, 0.2) !default;
+$dialog-content-border-width: 0 !default;
+$dialog-content-border-radius: variables.$border-radius-lg !default;
+$dialog-content-inner-border-radius: subtract(
+  $dialog-content-border-radius,
+  $dialog-content-border-width
+) !default;
+$dialog-content-box-shadow-xs: variables.$box-shadow-sm !default;
+$dialog-content-box-shadow-sm-up: variables.$box-shadow !default;
+
+$dialog-backdrop-bg: rgba(variables.$black, 0.6) !default;
+$dialog-header-border-color: variables.$border-color !default;
+$dialog-footer-border-color: $dialog-header-border-color !default;
+$dialog-header-border-width: $dialog-content-border-width !default;
+$dialog-footer-border-width: $dialog-header-border-width !default;
+$dialog-header-padding-y: $dialog-inner-padding !default;
+$dialog-header-padding-x: $dialog-inner-padding !default;
+$dialog-header-padding: $dialog-header-padding-y $dialog-header-padding-x !default; // Keep this for backwards compatibility
+
+$dialog-sm: 300px !default;
+$dialog-md: 500px !default;
+$dialog-lg: 800px !default;
+$dialog-xl: 1140px !default;
+
+$dialog-fade-transform: translate(0, -50px) !default;
+$dialog-show-transform: none !default;
+$dialog-transition: transform 0.15s ease-out !default;
+$dialog-scale-transform: scale(1.02) !default;

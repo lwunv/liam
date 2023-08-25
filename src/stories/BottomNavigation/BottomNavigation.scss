@@ -1,0 +1,27 @@
+@use '../../assets/scss/abstracts/_variables.scss';
+
+.j-bottom-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 15px;
+
+  &.wrap {
+    flex-wrap: wrap;
+    .j-bottom-navigation__item {
+      width: 100%;
+    }
+  }
+  &__item {
+    text-decoration: none;
+    cursor: pointer;
+    &.item-home {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &.active {
+      color: variables.$primary;
+      cursor: default;
+    }
+  }
+}

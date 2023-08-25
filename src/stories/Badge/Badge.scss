@@ -1,0 +1,82 @@
+@use '../../assets/scss/abstracts/_variables.scss';
+
+.j-badge {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    line-height: 1;
+
+    &__content {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        height: 20px;
+        min-width: 20px;
+        padding: 4px 6px;
+        border-radius: 10px;
+        font-size: 12px;
+        overflow: hidden;
+        color: variables.$white;
+        background-color: variables.$blue;
+        line-height: 1;
+    }
+
+    &__icon {
+        +.j-badge__content {
+            position: absolute;
+            bottom: calc(100% - 10px);
+            left: calc(100% - 10px);
+
+        }
+    }
+
+    &.dot {
+        .j-badge__content {
+            height: 10px;
+            min-width: 10px;
+            border-radius: 50%;
+            font-size: 0;
+            padding: 0;
+            bottom: calc(100% - 5px);
+            left: calc(100% - 5px);
+        }
+    }
+
+    &.inline {
+        .j-badge__icon {
+            +.j-badge__content {
+                position: static;
+                margin-left: 8px;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+
+    &.floating {
+        .j-badge__icon {
+            +.j-badge__content {
+                bottom: calc(100% - 3px);
+                left: calc(100% - 3px);
+            }
+        }
+    }
+
+    &.danger,
+    &.error {
+        .j-badge__content {
+            background-color: variables.$red;
+        }
+    }
+    &.success {
+        .j-badge__content {
+            background-color: variables.$green;
+        }
+    }
+    &.warning {
+        .j-badge__content {
+            background-color: variables.$yellow;
+        }
+    }
+}

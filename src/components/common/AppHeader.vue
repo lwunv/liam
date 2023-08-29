@@ -2,7 +2,7 @@
     <header class="header">
         <j-app-bar hiddenIcon title="Liam Nguyen" style="background: black" shadow>
             <template v-slot:append>
-                <j-badge content="90" background="blue">
+                <j-badge content="90">
                     <i class="material-icons">notifications</i>
                 </j-badge>
             </template>

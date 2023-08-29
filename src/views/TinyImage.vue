@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, onMounted } from 'vue';
 
 const tetrominoes = [

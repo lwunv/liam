@@ -1,5 +1,5 @@
 <template>
-    <div class="blog slide-left">
+    <div class="blog slide-right">
         <div class="blog__top" :style="`background: url(${item.image})`">
             <div class="blog__title">
                 <div class="blog__date">{{ item.datetime }}</div>

@@ -45,13 +45,10 @@ img {
   margin: 0 auto;
 }
 
-* {
-  transition: all 300ms;
-}
-
 a {
   color: variables.$body-color;
   text-decoration: none;
+  transition: all 300ms;
   &:hover {
     color: variables.$primary;
   }
